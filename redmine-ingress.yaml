@@ -4,14 +4,16 @@ kind: Ingress
 metadata:
   name: redmine-ingress
   namespace: postgres
-  annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
+  ingressClassName: nginx
   rules:
-  - host: redmine.local
-    http:
-      paths: /
-      pathType: Prefix
-      - backend:
-          serviceName: redmine-service
-          servicePort: 8080
+    - host: redmine.local
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: redmine-service
+                port:
+                  number: 3000
