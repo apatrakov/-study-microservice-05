@@ -47,9 +47,6 @@ spec:
               secretKeyRef:
                 name: postgres-secrets
                 key: REDMINE_SECRET_KEY_BASE
-        envFrom:
-          - secretRef:
-              name: postgres-secrets
         name: redmine
         ports:
           - containerPort: 3000
