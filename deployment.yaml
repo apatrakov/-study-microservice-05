@@ -21,7 +21,7 @@ spec:
       labels:
         app: app-postgres
     spec:
-      hostNetwork: true
+      #hostNetwork: true
       containers:
       - image: postgres:10.13
         env:
